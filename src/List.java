@@ -16,9 +16,9 @@ public class List
 		le.setData(5);
 		List mylist =new List();
 		mylist.addElement(le);
-		mylist.printLinkedListHead();
-		mylist.deleteElement(0);
-		mylist.printLinkedListHead();
+		mylist.printLinkedListTail();
+		//mylist.deleteElement(0);
+		//mylist.printLinkedListHead();
 
 
 	}
@@ -98,5 +98,26 @@ public class List
 			currentPtr=currentPtr.getNext();
 		}
 	}
+	public void printLinkedListTail()
+	{
+		//move to the last element 
+		ListElement currentPtr =new ListElement();
+		currentPtr=head;
+		int j=counter;
+		while (j>=0)
+		{
+			for (int i=0;i<(j-i);i++)
+			{
+			currentPtr=currentPtr.getNext();
+			}
+		
+			System.out.println(currentPtr.getData()+"\n");
+			currentPtr=head;
+			j--;
+		}
+
+	}
+		
+	
 	
 }
