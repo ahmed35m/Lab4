@@ -24,4 +24,15 @@ public class ListElement {
 	return this.data;
 	}
 	
+	public ListElement getNext()
+	{
+	return next;
+	}
+	public void setNext(ListElement nextVal)
+	{
+		next = nextVal;
+	}
+
+	
+	
 }
