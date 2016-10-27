@@ -16,15 +16,9 @@ public class List
 		le.setData(5);
 		List mylist =new List();
 		mylist.addElement(le);
-		
-		System.out.format("value set to 5\n");
-		System.out.println(mylist);
-
-		System.out.println(le.getData());
-		
-		
+		mylist.printLinkedListHead();
 		mylist.deleteElement(0);
-		System.out.println(mylist);
+		mylist.printLinkedListHead();
 
 
 	}
@@ -82,5 +76,27 @@ public class List
 		System.out.println("Element deleted\n");
 			}
 	}	
+	
+	public void printLinkedListHead()
+	{
+		/*
+		 * 
+		 * sortedListElement *currPtr;
+	currPtr = head;
+	while (currPtr != NULL)
+	{
+		cout << " "<< currPtr->top->datum << " ";
+		currPtr = currPtr->next;
+	}
+
+		 */
+		ListElement currentPtr =new ListElement();
+		currentPtr=head;
+		while (currentPtr!= null)
+		{
+			System.out.println(currentPtr.getData()+"\n");
+			currentPtr=currentPtr.getNext();
+		}
+	}
 	
 }
