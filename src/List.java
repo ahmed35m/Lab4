@@ -15,28 +15,23 @@ public class List
 
 		le.setData(5);
 		List mylist =new List();
-		mylist.addElement(le);
-		mylist.printLinkedListTail();
-		//mylist.deleteElement(0);
-		//mylist.printLinkedListHead();
-
-
+		System.out.print(le.getData());
 	}
 	
 	
 	public void addElement(ListElement le)
 	{
-		
+		ListElement tempPtr = new ListElement();
+		tempPtr=le;
 		if (head == null) 
 		{
-			head = new ListElement();
-			head = le;
+			//head = new ListElement();   //already declared
+			head = tempPtr;
+			head.setPrevious(null);
+			head.setNext(null);	
 		}
-	ListElement tempPtr = new ListElement();
-	tempPtr=le;
 	
-	ListElement currentPtr = head;
-
+	ListElement currentPtr =head;
 		
 		if (currentPtr != null)
 		{
@@ -46,6 +41,9 @@ public class List
 			}
 		}
 		currentPtr.setNext(tempPtr);
+		tempPtr.setPrevious(currentPtr);
+		tempPtr.setNext(null);
+		
 		incrementCounter();
 	}
 	
