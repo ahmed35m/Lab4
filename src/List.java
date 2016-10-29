@@ -12,10 +12,12 @@ public class List
 		
 		ListElement le = new ListElement();
 		System.out.format("List added\n");
-
+		
 		le.setData(5);
 		List mylist =new List();
+		mylist.addElement(le);
 		System.out.print(le.getData());
+		mylist.deleteElement(1);
 	}
 	
 	
@@ -60,19 +62,28 @@ public class List
 	public void deleteElement(int index) 
 	{
 		ListElement currentPtr = head;
-			if (head != null)
+		if (head != null)
+		{
+			for (int i = 0; i < index; i++)
 			{
-				for (int i = 0; i < index; i++)
+				currentPtr.setNext(currentPtr.getNext());
+				if (currentPtr.getNext() == null)
 				{
-					if (currentPtr.getNext() == null)
-					{
-						currentPtr = currentPtr.getNext();
-					}
+					currentPtr = currentPtr.getPrevious();
+					currentPtr.setNext(null);
 				}
-		currentPtr.setNext(currentPtr.getNext().getNext());
-		decrementCounter();
-		System.out.println("Element deleted\n");
+				else
+				{
+					currentPtr = currentPtr.getPrevious();
+					currentPtr.setNext(currentPtr.getNext().getNext());
+					currentPtr=currentPtr.getNext();
+					currentPtr.setPrevious(currentPtr.getPrevious().getPrevious());
+				}
 			}
+	currentPtr.setNext(currentPtr.getNext());
+	decrementCounter();
+	System.out.println("Element deleted\n");
+		}
 	}	
 	
 	public void printLinkedListHead()
