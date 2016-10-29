@@ -11,13 +11,16 @@ public class List
 		
 		
 		ListElement le = new ListElement();
-		System.out.format("List added\n");
-		
 		le.setData(5);
+		ListElement lf = new ListElement();
+		lf.setData(6);
+
 		List mylist =new List();
 		mylist.addElement(le);
-		System.out.print(le.getData());
-		mylist.deleteElement(1);
+		mylist.addElement(lf);
+
+		mylist.printLinkedListTail();
+	
 	}
 	
 	
@@ -109,24 +112,20 @@ public class List
 	}
 	public void printLinkedListTail()
 	{
-		//move to the last element 
+		//implementation changed completely 
 		ListElement currentPtr =new ListElement();
 		currentPtr=head;
-		int j=counter;
-		while (j>=0)
+		while (currentPtr.getNext()!=null)
 		{
-			for (int i=0;i<(j-i);i++)
-			{
-			currentPtr=currentPtr.getNext();
-			}
-		
-			System.out.println(currentPtr.getData()+"\n");
-			currentPtr=head;
-			j--;
+			currentPtr.setNext(currentPtr.getNext());
 		}
-
-	}
+		while(currentPtr.getPrevious()!=null)
+		{
+			System.out.println(currentPtr.getData());
+		}
+		System.out.println(currentPtr.getData());
 		
+	}		
 	
 	
 }
