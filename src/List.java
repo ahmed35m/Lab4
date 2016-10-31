@@ -16,8 +16,8 @@ public class List {
 		mylist.addElement(le);
 		le.setData(50);
 		mylist.addElement(le);
-		mylist.printListHead();
-		mylist.printListTail();
+		//mylist.printListHead();
+		//mylist.printListTail();
 		
 		
 	}
