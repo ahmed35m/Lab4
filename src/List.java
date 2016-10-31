@@ -12,7 +12,13 @@ public class List {
 		le.setData(5);
 		System.out.format("value set to 5\n");
 		System.out.println(le.getData());
-
+		List mylist = new List();
+		mylist.addElement(le);
+		le.setData(50);
+		mylist.addElement(le);
+		mylist.printListHead();
+		mylist.printListTail();
+		
 		
 	}
 	public void addElement(ListElement le)
